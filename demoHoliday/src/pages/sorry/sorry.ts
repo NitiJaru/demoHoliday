@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { VideoPlayer } from '@ionic-native/video-player';
 
 /**
  * Generated class for the SorryPage page.
@@ -15,11 +16,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SorryPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private videoPlayer: VideoPlayer) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SorryPage');
   }
 
+  dontClickMe() {
+    this.videoPlayer.play('https://www.youtube.com/watch?v=NOX3QC0L9i8').then(() => {
+      console.log('video completed');
+    }).catch(err => {
+      console.log(err);
+    });
+  }
 }

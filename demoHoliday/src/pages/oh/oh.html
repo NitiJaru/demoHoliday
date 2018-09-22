@@ -7,12 +7,57 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Oh</ion-title>
+    <ion-title>Oreo</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="bg-image">
+<div padding>
+  <ion-segment [(ngModel)]="pet">
+    <ion-segment-button value="kittens">
+      Death Note
+    </ion-segment-button>
+    <ion-segment-button value="puppies">
+      Deathly Hallows
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
+<div [ngSwitch]="pet">
+  <ion-list *ngSwitchCase="'puppies'">
+    <ion-item style="background-color: #F8ECE0;">
+      <ion-thumbnail item-start>
+        <img src="../assets/imgs/i1.png">
+      </ion-thumbnail>
+      <h2>ศิลาอาถรรพ์</h2>
+    </ion-item>
+    <ion-item style="background-color: #F8ECE0;">
+      <ion-thumbnail item-start>
+        <img src="../assets/imgs/i2.png">
+      </ion-thumbnail>
+      <h2>ผ้าคลุมล่องหน</h2>
+    </ion-item>
+    <ion-item style="background-color: #F8ECE0;">
+      <ion-thumbnail item-start>
+        <img src="../assets/imgs/i3.png">
+      </ion-thumbnail>
+      <h2>ไม้เอลเดอร์</h2>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'kittens'">
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="../assets/imgs/ii1.jpg">
+      </ion-thumbnail>
+      <h2>Dead Note</h2>
+    </ion-item>
+  </ion-list>
+</div>
+<div>
+<h1 text-center>Hello</h1>
+</div>
 
 </ion-content>

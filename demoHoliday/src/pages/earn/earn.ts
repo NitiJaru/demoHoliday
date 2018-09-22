@@ -1,12 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the EarnPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -15,11 +8,40 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class EarnPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  model: any = {};
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EarnPage');
+  }
+
+  submit() {
+    let alert = this.alertCtrl.create({
+      title: 'Did you say this?',
+      message: this.model.word,
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        },
+        {
+          text: 'Yesss',
+          handler: () => {
+            let alert = this.alertCtrl.create({
+              title: "Do not lie to me",
+              buttons: ["Okayy..."]
+            });
+            alert.present();
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+  home(){
+    this.navCtrl.popToRoot();
   }
 
 }

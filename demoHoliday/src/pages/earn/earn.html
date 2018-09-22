@@ -1,12 +1,49 @@
 <ion-header>
-
   <ion-navbar>
     <ion-title>Earn</ion-title>
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content padding>
 
+  <form (ngSubmit)="submit()" #myForm="ngForm">
+    <ion-item>
+      <ion-label>Word</ion-label>
+      <ion-input type="text" placeholder="Say something" [(ngModel)]="model.word" name="word" #word="ngModel" required
+        minlength="4" appForbiddenName="bob"></ion-input>
+    </ion-item>
+
+    <div *ngIf="word.invalid && (word.dirty || word.touched)" class="alert alert-danger">
+      <div *ngIf="word.errors.required">
+        Word is required.
+      </div>
+      <div *ngIf="word.errors.minlength">
+        Word must be at least 4 characters long.
+      </div>
+      <div *ngIf="word.errors.forbiddenName">
+        Word cannot be Bob.
+      </div>
+    </div>
+    <button type="submit" ion-button block [disabled]="!myForm.form.valid">Say It</button>
+  </form>
+
+  <h2>Contract</h2>
+  <ion-card>
+    <ion-card-header>
+      <img src="https://thumbs.gfycat.com/HarmlessBraveGourami-size_restricted.gif" width="100%">
+    </ion-card-header>
+    <ion-card-content>
+      <p><b>Eamil:</b> earndarkness@gmail.com</p>
+      <p><b>Address:</b> TheS</p>
+      <p><b>Tel:</b> 080-XXXXXXX</p>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
+
+<ion-footer>
+  <button ion-button block color="danger" (click)="home()">
+    <ion-icon name="home"></ion-icon>
+    <b>Home</b>
+  </button>
+</ion-footer>

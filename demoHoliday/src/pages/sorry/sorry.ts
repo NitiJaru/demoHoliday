@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { VideoPlayer } from '@ionic-native/video-player';
+// import { VideoPlayer } from '@ionic-native/video-player';
 import { LoadingController } from 'ionic-angular';
 
 @IonicPage()
@@ -12,7 +12,7 @@ export class SorryPage {
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
-    private videoPlayer: VideoPlayer,
+    // private videoPlayer: VideoPlayer,
     public loadingCtrl: LoadingController) {
   }
 
@@ -28,11 +28,11 @@ export class SorryPage {
     loader.present();
   }
 
-  vdo(){
-    this.videoPlayer.play('https://www.youtube.com/watch?v=NOX3QC0L9i8').then(() => {
-      console.log('video completed');
-    }).catch(err => {
-      console.log(err);
-    });
-  }
+  // vdo(){
+  //   this.videoPlayer.play('https://www.youtube.com/watch?v=NOX3QC0L9i8').then(() => {
+  //     console.log('video completed');
+  //   }).catch(err => {
+  //     console.log(err);
+  //   });
+  // }
 }
